@@ -34,6 +34,16 @@ body {
   overflow-x: hidden;
 }
 
+body.light {
+  --bg:       #f5f0e8;
+  --surface:  #ede8df;
+  --card:     #e0d9ce;
+  --card-hover:#d4ccc0;
+  --border:   #c8bfb0;
+  --text:     #1a1814;
+  --muted:    #7a7060;
+}
+
 /* Noise texture overlay */
 body::before {
   content: '';

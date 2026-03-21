@@ -4,17 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>UmU Studios — Stories</title>
-
-  <!-- Icons & Fonts -->
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 
-  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
 
-  <!-- ═══ NAVBAR ═══ -->
   <nav class="navbar-custom">
     <div class="nav-logo" id="nav-logo-text" onclick="showPage('home')"></div>
     <div class="nav-links">
@@ -31,9 +28,6 @@
   </nav>
 
 
-  <!-- ═══════════════════════════════════════ -->
-  <!-- PAGE: HOME                              -->
-  <!-- ═══════════════════════════════════════ -->
   <div class="page active" id="page-home">
 
     <!-- Hero — rendered by render.js from siteConfig in data.js -->
@@ -56,12 +50,8 @@
     </div>
     <div class="chapters-grid" id="home-chapters-grid"></div>
 
-  </div><!-- /page-home -->
-
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- PAGE: COLLECTIONS                       -->
-  <!-- ═══════════════════════════════════════ -->
+  </div>  <!-- /page-home -->
+ 
   <div class="page" id="page-collections">
     <div class="page-header" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
       <div>
@@ -75,10 +65,7 @@
     <div class="collections-grid" id="collections-full-grid"></div>
   </div>
 
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- PAGE: COLLECTION DETAIL                 -->
-  <!-- ═══════════════════════════════════════ -->
+  <!-- PAGE: COLLECTION DETAIL -->
   <div class="page" id="page-detail">
     <div style="max-width:860px;margin:0 auto;padding:2rem 2rem 4rem;">
       <button class="back-btn" onclick="showPage('collections')">
@@ -92,18 +79,13 @@
     </div>
   </div>
 
-
-  <!-- ═══════════════════════════════════════ -->
-  <!-- PAGE: READER                            -->
-  <!-- ═══════════════════════════════════════ -->
+  <!-- PAGE: READER-->
   <div class="page" id="page-reader">
     <div class="reader-wrap" id="reader-content"></div>
   </div>
 
 
-  <!-- ═══════════════════════════════════════ -->
   <!-- PAGE: WRITE                             -->
-  <!-- ═══════════════════════════════════════ -->
   <div class="page" id="page-write">
     <div class="write-wrap">
       <div class="write-header">
@@ -147,7 +129,7 @@
   </div>
 
 
-  <!-- ═══ MODAL: NEW COLLECTION ═══ -->
+  <!--NEW COLLECTION -->
   <div class="modal-backdrop" id="modal-backdrop" onclick="closeNewCollectionModal()"></div>
   <div class="modal-box" id="new-col-modal">
     <div class="modal-header">
@@ -192,7 +174,7 @@
   </div>
 
 
-  <!-- ═══ MODAL: EDIT PROFILE ═══ -->
+  <!--EDIT PROFILE-->
   <div class="modal-backdrop" id="profile-backdrop" onclick="closeProfileModal()"></div>
   <div class="modal-box" id="profile-modal">
     <div class="modal-header">
@@ -245,7 +227,7 @@
   </div>
 
 
-  <!-- ═══ MODAL: EDIT COLLECTION ═══ -->
+  <!--EDIT COLLECTION-->
   <div class="modal-backdrop" id="edit-col-backdrop" onclick="closeEditColModal()"></div>
   <div class="modal-box" id="edit-col-modal">
     <div class="modal-header">
@@ -289,8 +271,7 @@
   </div>
 
 
-  <!-- ═══ SCRIPTS ═══ -->
-  <!-- Load order matters: data first, then render, then modals, then app -->
+  <!--SCRIPTS:  Load order matters: data first, then render, then modals, then app-->
   <script src="js/data.js"></script>
   <script src="js/render.js"></script>
   <script src="js/modals.js"></script>

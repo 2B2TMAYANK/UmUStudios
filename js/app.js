@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════════════════════════════════════
+/*
    UmU Studios — app.js
    Core application logic:
      - Page navigation
@@ -6,9 +6,9 @@
      - Write page (new chapter + edit mode)
      - Reaction toggle (like / dislike)
      - App initialisation
-   ═══════════════════════════════════════════════════════════════════════════ */
+ */
 
-/* ─── PAGE NAVIGATION ─── */
+//PAGE NAVIGATION
 function showPage(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -25,7 +25,7 @@ function showPage(pageId) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* ─── COLLECTION DETAIL ─── */
+// COLLECTION DETAIL
 function openDetail(colId) {
   renderDetailPage(colId);
 
@@ -38,13 +38,13 @@ function openDetail(colId) {
   showPage('detail');
 }
 
-/* ─── READER ─── */
+// READER
 function openReader(colId, chIndex) {
   renderReader(colId, chIndex);
   showPage('reader');
 }
 
-/* ─── REACTION TOGGLE ─── */
+//REACTION TOGGLE
 function toggleReact(key, type) {
   const rs          = reactionState[key];
   const likeBtn     = document.getElementById(`like-btn-${key}`);
@@ -73,9 +73,8 @@ function toggleReact(key, type) {
 }
 
 
-/* ═══════════════════════════════════════════════════════
-   WRITE PAGE
-   ═══════════════════════════════════════════════════════ */
+// WRITE PAGE
+
 let selectedWriterCollection = null;
 let editMode = null; // null = new chapter | { colId, chIndex } = editing
 
@@ -110,7 +109,7 @@ function clearWriter() {
   hideToast();
 }
 
-/* Open Write page pre-filled for editing an existing chapter */
+// Open Write page pre-filled for editing an existing chapter
 function editChapter(colId, chIndex) {
   const col = collections.find(c => c.id === colId);
   const ch  = col.chapters[chIndex];
@@ -128,11 +127,10 @@ function editChapter(colId, chIndex) {
     '<i class="bi bi-check-lg"></i> Update';
 
   showPage('write');
-  // Pills render after showPage; highlight the correct one after a tick
-  setTimeout(() => selectWriterCollection(colId), 10);
+  setTimeout(() => selectWriterCollection(colId), 10);   // Pills render after showPage; highlight the correct one after a tick
 }
 
-/* Publish (new) or Update (edit) */
+// Publish (new) or Update (edit)
 function publishChapter() {
   const title = document.getElementById('write-title').value.trim();
   const body  = document.getElementById('write-body').value.trim();
@@ -148,13 +146,11 @@ function publishChapter() {
   const today   = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 
   if (editMode) {
-    /* ── UPDATE existing chapter ── */
-    const ch   = col.chapters[editMode.chIndex];
+    const ch   = col.chapters[editMode.chIndex];    // UPDATE existing chapter
     ch.title   = title;
     ch.body    = body;
     ch.sub     = `${wc.toLocaleString()} words`;
     ch.excerpt = excerpt;
-    // publish date stays unchanged
 
     renderHomeCollections();
     renderHomeChapters();
@@ -166,7 +162,7 @@ function publishChapter() {
     setTimeout(() => openDetail(prevEdit.colId), 1600);
 
   } else {
-    /* ── PUBLISH new chapter ── */
+    // PUBLISH new chapter
     col.chapters.push({
       num:      col.chapters.length + 1,
       title,
@@ -191,7 +187,7 @@ function publishChapter() {
   }
 }
 
-/* ─── TOAST NOTIFICATIONS ─── */
+//TOAST NOTIFICATIONS
 function showToast(type, html) {
   const t = document.getElementById('publish-toast');
   t.className   = `publish-toast ${type}`;
@@ -207,10 +203,7 @@ function hideToast() {
 }
 
 
-/* ═══════════════════════════════════════════════════════
-   INITIALISATION
-   Runs once on page load. Order matters.
-   ═══════════════════════════════════════════════════════ */
+// INITIALISATION: Runs once on page load. Order matters.
 (function init() {
   renderNavLogo();
   renderHero();

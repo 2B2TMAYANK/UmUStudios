@@ -1,6 +1,5 @@
-/* ═══════════════════════════════════════════════════════════════════════════
-   UmU Studios — data.js
-   Single source of truth for all application data.
+/* UmU Studios — data.js
+   Single source for all application data.
 
    In production this file would be replaced by API calls to a backend.
    For this dummy, these objects act as the mock data layer.
@@ -9,15 +8,14 @@
    - siteConfig  → all user-editable profile data
    - collections → array of collection objects, each with chapter metadata
    - Chapter bodies are NOT stored here. They are written via the Write page
-     and held in memory, or fetched from a DB in production.
-   ═══════════════════════════════════════════════════════════════════════════ */
+     and held in memory, or fetched from a DB in production. */
 
 const siteConfig = {
-  name:          'Mayank / UmU Studios',
+  name:          'Writer Studios',
   handle:        'Mr_UmU',
   tag:           'Editor & Author',
-  bio:           'Fan fiction editor and writer operating under UmU Studios. I post edited chapters of Warhammer 40K, Frieren, Star Wars, and original speculative fiction. Every story archived here is crafted with lore-accuracy and narrative care. Reader since forever. Writer since I had to be.',
-  avatarInitial: 'M',
+  bio:           'Fan fiction editor and writer operating under UmU Studios. We post edited chapters of Warhammer 40K, Frieren, Star Wars, and original speculative fiction. Every story archived here is crafted with lore-accuracy and narrative care. Reader since forever. Writer since we had to be.',
+  avatarInitial: 'S.M.R',
   avatarColor:   'linear-gradient(135deg,#c9a84c,#6b4f1e)',
   stats: {
     readers: '1.2k'

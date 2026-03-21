@@ -25,6 +25,13 @@ function showPage(pageId) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  document.getElementById('theme-toggle').innerHTML = 
+    isLight ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon"></i>';
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+}
+
 // COLLECTION DETAIL
 function openDetail(colId) {
   renderDetailPage(colId);
@@ -211,4 +218,5 @@ function hideToast() {
   renderHomeChapters();
   renderCollectionsGrid();
   renderWriterCollectionPills();
+  if (localStorage.getItem('theme') === 'light') toggleTheme();
 })();
